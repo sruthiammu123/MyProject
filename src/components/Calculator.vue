@@ -1,24 +1,24 @@
 <template>
   <div class="calculator">
     <div class="display">{{number || '0'}}</div>
-    <div @click="clear" class="btn clear">C</div>
-    <div @click="remove" class="btn remove">Del</div>
-    <div @click="append('7')" class="btn">7</div>
-    <div @click="append('8')" class="btn">8</div>
-    <div @click="append('9')" class="btn">9</div>
-    <div @click="divide" class="btn operator">/</div>
-    <div @click="append('4')" class="btn">4</div>
-    <div @click="append('5')" class="btn">5</div>
-    <div @click="append('6')" class="btn">6</div>
-    <div @click="mutliply" class="btn operator">x</div>
-    <div @click="append('1')" class="btn">1</div>
-    <div @click="append('2')" class="btn">2</div>
-    <div @click="append('3')" class="btn">3</div>
-    <div @click="minus" class="btn operator">-</div>
-    <div @click="append('0')" class="btn">0</div>
-    <div @click="dot" class="btn">.</div>
-    <div @click="add" class="btn operator">+</div>
-    <div @click="equal" class="btn operator">=</div>
+    <div v-on:click="clear()" class="btn clear">C</div>
+    <div v-on:click="remove()" class="btn remove">Del</div>
+    <div v-on:click="key('7')" class="btn">7</div>
+    <div v-on:click="key('8')" class="btn">8</div>
+    <div v-on:click="key('9')" class="btn">9</div>
+    <div v-on:click="key('/')" class="btn operator">/</div>
+    <div v-on:click="key('4')" class="btn">4</div>
+    <div v-on:click="key('5')" class="btn">5</div>
+    <div v-on:click="key('6')" class="btn">6</div>
+    <div v-on:click="key('*')" class="btn operator">x</div>
+    <div v-on:click="key('1')" class="btn">1</div>
+    <div v-on:click="key('2')" class="btn">2</div>
+    <div v-on:click="key('3')" class="btn">3</div>
+    <div v-on:click="key('-')" class="btn operator">-</div>
+    <div v-on:click="key('0')" class="btn">0</div>
+    <div v-on:click="key('.')" class="btn">.</div>
+    <div v-on:click="key('+')" class="btn operator">+</div>
+    <div v-on:click="equal()" class="btn operator">=</div>
   </div>
 </template>
 
@@ -26,57 +26,22 @@
 export default {
   data() {
     return {
-      prevNum: null,
-      number: '',
-      operator: null,
-      operatorClicked: false
+      number: ''
     }
   },
   methods: {
-    clear() {
-      this.number = '';
+    key: function(num) {
+      return this.number += num;
     },
-    append(num) {
-      if(this.operatorClicked) {
-        this.number = '',
-        this.operatorClicked = false
-      }
-      this.number = this.number + num;
+    clear: function() {
+      return this.number = '';
     },
-    remove() {
+    equal: function() {
+      let equal = this.number;
+      return this.number = eval(equal);
+    },
+    remove: function() {
       this.number = this.number.slice(0, -1);
-    },
-    dot() {
-      if(this.number.indexOf('.') === -1){
-        this.append('.');
-      }
-    },
-    setPrevNum() {
-      this.prevNum = this.number;
-      this.operatorClicked = true;
-    },
-    add() {
-      this.number = (a, b) => a + b;
-      this.setPrevNum();
-    },
-    minus() {
-      this.number = (a, b) => a - b;
-      this.setPrevNum();
-    },
-    multiply() {
-      this.number = (a, b) => a * b;
-      this.setPrevNum();
-    },
-    divide() {
-      this.number = (a, b) => a / b;
-      this.setPrevNum();
-    },
-    equal() {
-      this.number = `${this.operator(
-        parseFloat(this.number),
-        parseFloat(this.prevNum)
-      )}`;
-      this.prevNum = null;
     }
   }
 }
