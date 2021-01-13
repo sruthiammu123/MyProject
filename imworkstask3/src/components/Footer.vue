@@ -2,7 +2,7 @@
    <v-footer
        padless
        fixed
-       color="#FFFFFF"
+       color="white"
        style="height: 50px"
        class="hidden-md-and-down"
    >

@@ -3,10 +3,8 @@
     <v-col cols="2" md="3" v-for="detail in details" :key="detail.value">
       <v-card height="250px">
         <v-row no-gutters>
-          <!-- box col -->
           <v-col cols="12">
             <v-row no-gutters>
-              <!-- inner col 1 -->
               <v-col cols="7">
                 <v-card-title
                   ><v-icon left medium color="blue">mdi-folder</v-icon
@@ -15,7 +13,6 @@
                 <v-card-subtitle>{{ detail.time }}</v-card-subtitle>
               </v-col>
               <!-- <v-spacer></v-spacer> -->
-              <!-- inner col 2 -->
               <v-col cols="2" class="mt-6">
                 <v-icon>mdi-checkbox-blank-outline</v-icon>
                 <v-icon>mdi-dots-vertical</v-icon>

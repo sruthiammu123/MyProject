@@ -79,43 +79,37 @@ export default {
           name: 'Varun Mital',
           userrole: 'Admin',
           taskcounts: 1,
-          progress: '92',
-          // actions: 'mdi-menu-down'
+          progress: '92'
         },
         {
           name: 'Ben John',
           userrole: 'Volunteer',
          taskcounts: 4,
-          progress: '50',
-          //actions: 4.
+          progress: '50'
         },
         {
           name: 'Neha Shekhar',
           userrole: 'Finance Manager',
           taskcounts: 6,
-          progress: '100',
-          //actions: 4.
+          progress: '100'
         },
         {
           name: 'Nadeem V.',
           userrole: 'Donor',
           taskcounts: 1,
-          progress: '92',
-          //actions: 4.
+          progress: '92'
         },
         {
           name: 'Shivani Kumar',
           userrole: 'Volunteer',
           taskcounts: 4,
-          progress: '50',
-          //actions: 4.
+          progress: '50'
         },
         {
           name: 'Sneha Bansal',
           userrole: 'Regional Manager',
           taskcounts: 6,
-          progress: '100',
-          //actions: "mdi-menu-down"
+          progress: '100'
         }
       ],
       expanded: [],
